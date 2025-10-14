@@ -50,10 +50,17 @@
         }
         .highlight {
             background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .critical-section {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
         }
         .contact-info {
             background: #d4edda;
@@ -78,6 +85,12 @@
             border-top: 1px solid #ddd;
             color: #666;
         }
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
@@ -87,7 +100,7 @@
         <div class="company-info">
             <strong>Phoenician Technical Services LLC</strong><br>
             Phoenician HR Application - Attendance<br>
-            <strong>Last updated:</strong> September 15, 2025
+            <strong>Last updated:</strong> October 14, 2025
         </div>
 
         <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
@@ -142,46 +155,145 @@
 
         <ul>
             <li><strong>Location Information:</strong> Your GPS coordinates and geofencing data to verify attendance at authorized work locations</li>
-            <li><strong>Biometric Data:</strong> Pictures and facial recognition data from your Device's camera for employee authentication</li>
+            <li><strong>Biometric Data:</strong> Device biometric authentication (Face ID/Touch ID) and custom facial recognition data for employee authentication</li>
             <li><strong>Attendance Data:</strong> Clock-in/clock-out times, break durations, work hours, and attendance patterns</li>
         </ul>
 
-        <div class="highlight">
-            <h4>🔒 Facial Recognition and Biometric Data Collection</h4>
-            <p><strong>Important Notice:</strong> Our Application uses advanced facial recognition technology for employee authentication and attendance verification.</p>
+        <div class="critical-section">
+            <h2>🔒 Facial Recognition and Biometric Data Collection</h2>
+            <p><strong>Important Notice:</strong> Our Application uses TWO TYPES of biometric authentication:</p>
             
-            <p><strong>What We Collect:</strong></p>
+            <h3>1️⃣ DEVICE BIOMETRIC AUTHENTICATION (Face ID/Touch ID)</h3>
+            <div class="warning-box">
+                <p><strong>What It Is:</strong> When you open the app, it uses your iPhone or iPad's built-in Face ID or Touch ID to verify you are the authorized device owner.</p>
+            </div>
+
+            <p><strong>How It Works:</strong></p>
             <ul>
-                <li><strong>Facial Images:</strong> High-resolution photographs of your face taken during registration</li>
+                <li><strong>Automatic Authentication:</strong> Face ID/Touch ID triggers automatically when you launch the app</li>
+                <li><strong>Device Security:</strong> Verifies you are the owner of the device before allowing app access</li>
+                <li><strong>Apple-Managed:</strong> All Face ID/Touch ID data is processed and stored entirely by Apple in your device's Secure Enclave</li>
+            </ul>
+
+            <p><strong>Our Access to Face ID/Touch ID Data:</strong></p>
+            <ul>
+                <li><strong>ZERO Data Collection:</strong> We NEVER access, collect, or store your Face ID/Touch ID data</li>
+                <li><strong>Authentication Result Only:</strong> We only receive a YES/NO result from Apple</li>
+                <li><strong>No Transmission:</strong> Face ID/Touch ID data never leaves your device</li>
+                <li><strong>Apple's Control:</strong> All biometric data is controlled entirely by iOS</li>
+            </ul>
+
+            <p><strong>Purpose of Device Biometric Authentication:</strong></p>
+            <ul>
+                <li>Secure app entry and device ownership verification</li>
+                <li>Compliance with Apple security requirements</li>
+                <li>Fast and convenient authentication</li>
+                <li>Prevention of unauthorized access to the app</li>
+            </ul>
+
+            <h3>2️⃣ CUSTOM FACE RECOGNITION (Attendance Verification)</h3>
+            <div class="warning-box">
+                <p><strong>What It Is:</strong> Separate facial scanning technology used to verify employee identity during attendance check-in and check-out.</p>
+                <p><strong>Key Distinction:</strong> This is NOT used for app login - it's used ONLY for attendance verification after you're already logged in.</p>
+            </div>
+
+            <p><strong>What We Collect (Custom Face Recognition Only):</strong></p>
+            <ul>
+                <li><strong>Facial Images:</strong> High-resolution photographs of your face taken during attendance registration</li>
                 <li><strong>Biometric Templates:</strong> Mathematical representations of your facial features converted into encrypted data</li>
                 <li><strong>Facial Landmarks:</strong> Unique facial geometry points (distance between eyes, nose shape, jawline, etc.)</li>
                 <li><strong>Recognition Patterns:</strong> Digital signatures created from your facial characteristics</li>
-                <li><strong>Authentication Attempts:</strong> Records of successful and failed face recognition attempts</li>
+                <li><strong>Authentication Attempts:</strong> Records of successful and failed attendance verification attempts</li>
             </ul>
 
-            <p><strong>How Facial Data is Processed:</strong></p>
+            <p><strong>How Custom Facial Data is Processed:</strong></p>
             <ul>
                 <li><strong>Initial Registration:</strong> During first-time setup, the app captures multiple facial images from different angles</li>
                 <li><strong>Template Creation:</strong> Your facial images are converted into encrypted biometric templates that cannot be reverse-engineered into photos</li>
-                <li><strong>Secure Storage:</strong> Biometric templates are stored on secure company servers with enterprise-grade encryption</li>
+                <li><strong>Secure Storage:</strong> Biometric templates are stored on Firebase Cloud Firestore (UAE region) with enterprise-grade encryption</li>
                 <li><strong>Real-time Matching:</strong> During attendance marking, your live facial scan is compared against your stored template</li>
+                <li><strong>Liveness Detection:</strong> System verifies you are physically present (not a photo or video)</li>
             </ul>
 
-            <p><strong>Security Measures for Facial Data:</strong></p>
+            <p><strong>Purpose of Custom Face Recognition:</strong></p>
             <ul>
-                <li><strong>End-to-End Encryption:</strong> All biometric data is encrypted during transmission and storage</li>
-                <li><strong>No Image Storage:</strong> Original facial photographs are deleted after template creation</li>
-                <li><strong>Access Control:</strong> Biometric data is accessible only to authorized system administrators</li>
+                <li>Verify employee identity during check-in/check-out</li>
+                <li>Prevent attendance fraud (buddy punching)</li>
+                <li>Ensure workplace security compliance</li>
+                <li>Maintain accurate attendance records</li>
+                <li><strong>NOT used for app login or account authentication</strong></li>
+            </ul>
+
+            <p><strong>Security Measures for Custom Facial Data:</strong></p>
+            <ul>
+                <li><strong>End-to-End AES-256 Encryption:</strong> All biometric data is encrypted during transmission and storage</li>
+                <li><strong>Zero Image Storage:</strong> Original facial photographs are deleted immediately after template creation</li>
+                <li><strong>Access Control:</strong> Biometric data is accessible only to authorized system administrators with audit trails</li>
+                <li><strong>Secure Infrastructure:</strong> Data stored on Firebase Cloud Firestore (Google Cloud Platform - UAE region)</li>
+                <li><strong>Regular Security Audits:</strong> Third-party security assessments and vulnerability testing</li>
                 <li><strong>Immediate Deletion:</strong> Upon employment termination, all biometric data is permanently deleted within 30 days</li>
             </ul>
 
-            <p><strong>Your Rights Regarding Facial Data:</strong></p>
+            <p><strong>Third-Party Sharing Policy:</strong></p>
             <ul>
-                <li><strong>Consent Withdrawal:</strong> You may withdraw consent for facial recognition at any time with 30-day notice</li>
-                <li><strong>Alternative Authentication:</strong> Alternative login methods available if you opt-out of facial recognition</li>
-                <li><strong>Data Access:</strong> You can request information about your stored biometric data</li>
-                <li><strong>Breach Notification:</strong> You will be immediately notified of any biometric data security incidents</li>
+                <li><strong>NO Third-Party Sharing:</strong> Face ID/Touch ID data is controlled entirely by Apple and never shared</li>
+                <li><strong>NO External Access:</strong> Custom face data is NEVER sold, rented, or shared with:
+                    <ul>
+                        <li>External parties or companies</li>
+                        <li>Advertisers or marketing companies</li>
+                        <li>Data brokers or analytics providers</li>
+                        <li>Other applications or services</li>
+                    </ul>
+                </li>
+                <li><strong>Internal Access Only:</strong> Custom face data is accessible only to:
+                    <ul>
+                        <li>The employee themselves</li>
+                        <li>Company HR administrators (encrypted, audited access)</li>
+                    </ul>
+                </li>
             </ul>
+
+            <p><strong>Data Storage Locations:</strong></p>
+            <ul>
+                <li><strong>Face ID/Touch ID:</strong> Stored in your device's Secure Enclave (Apple-managed, never transmitted)</li>
+                <li><strong>Custom Face Templates:</strong> Firebase Cloud Firestore (encrypted, UAE region, Google Cloud Platform)</li>
+                <li><strong>Local Device Cache:</strong> Encrypted local storage (temporary, for offline mode support)</li>
+                <li><strong>Encryption Standards:</strong> AES-256 encryption at rest, TLS 1.3 encryption in transit</li>
+            </ul>
+
+            <p><strong>Data Retention Periods:</strong></p>
+            <ul>
+                <li><strong>Face ID/Touch ID:</strong> Managed entirely by iOS, never accessible to our app</li>
+                <li><strong>Custom Face Data - During Employment:</strong> Retained for authentication purposes throughout employment</li>
+                <li><strong>Custom Face Data - After Termination:</strong> Automatically deleted within 30 days of employment termination</li>
+                <li><strong>Attendance Records (Non-Biometric):</strong> Timestamp and employee ID retained for 7 years per UAE Labor Law</li>
+                <li><strong>Deletion Process:</strong> Irreversible deletion from all systems including backups</li>
+            </ul>
+
+            <p><strong>Your Rights Regarding Biometric Data:</strong></p>
+            <ul>
+                <li><strong>Consent Withdrawal:</strong> You may withdraw consent for custom facial recognition at any time with 30-day notice period</li>
+                <li><strong>Data Access:</strong> You can request information about your stored biometric data at any time</li>
+                <li><strong>Data Portability:</strong> Request your biometric data in machine-readable format</li>
+                <li><strong>Data Deletion:</strong> Request immediate deletion of your custom face data (triggered automatically upon termination)</li>
+                <li><strong>Alternative Authentication:</strong> Alternative login methods available upon request for accessibility needs</li>
+                <li><strong>Breach Notification:</strong> You will be immediately notified within 72 hours of any biometric data security incidents</li>
+                <li><strong>Appeal Process:</strong> Escalation path available for privacy concerns</li>
+            </ul>
+
+            <p><strong>How to Exercise Your Rights:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> privacy@phoenician-uae.com</li>
+                <li><strong>Phone:</strong> +971 4 882 9484</li>
+                <li><strong>In-App:</strong> Settings → Privacy → Data Rights</li>
+                <li><strong>Response Time:</strong> Within 15 business days</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>⚠️ Important Distinction:</strong></p>
+                <p><strong>Face ID/Touch ID (Device Authentication):</strong> Used for app access, controlled by Apple, ZERO data collection by our app</p>
+                <p><strong>Custom Face Recognition (Attendance Verification):</strong> Used for attendance check-in/check-out, controlled by our app, data stored securely with strict privacy protections</p>
+            </div>
         </div>
 
         <h3>Use of Your Personal Data</h3>
@@ -190,7 +302,8 @@
         <ul>
             <li><strong>To Provide and Maintain Our Service:</strong> Including monitoring the usage of our Service and ensuring accurate attendance tracking</li>
             <li><strong>To Manage Your Account:</strong> To manage Your registration as a user of the Service</li>
-            <li><strong>For Employee Authentication:</strong> To verify your identity through facial recognition and ensure secure access to company systems</li>
+            <li><strong>For Device Authentication:</strong> To verify device ownership using Face ID/Touch ID at app launch</li>
+            <li><strong>For Employee Authentication:</strong> To verify your identity through custom facial recognition during attendance marking</li>
             <li><strong>For Attendance Management:</strong> To accurately record work hours, overtime, breaks, and generate attendance reports for payroll processing</li>
             <li><strong>For Workplace Security:</strong> To ensure only authorized employees access company premises and sensitive areas</li>
             <li><strong>To Contact You:</strong> To contact You regarding work schedules, policy changes, or system updates</li>
@@ -202,8 +315,9 @@
 
         <p><strong>Specific Retention Periods:</strong></p>
         <ul>
-            <li><strong>Biometric Data:</strong> Retained during employment and deleted within 30 days of termination</li>
-            <li><strong>Attendance Records:</strong> Retained for 7 years as required by UAE labor law</li>
+            <li><strong>Face ID/Touch ID Data:</strong> Managed by iOS, never stored by our app</li>
+            <li><strong>Custom Biometric Data:</strong> Retained during employment and deleted within 30 days of termination</li>
+            <li><strong>Attendance Records:</strong> Retained for 7 years as required by UAE labor law (non-biometric data only)</li>
             <li><strong>Personal Information:</strong> Maintained during employment and archived according to legal requirements</li>
             <li><strong>Usage Data:</strong> Generally retained for shorter periods unless required for security or legal purposes</li>
         </ul>
@@ -212,11 +326,14 @@
         <p>The security of Your Personal Data is important to Us. We implement comprehensive security measures including:</p>
 
         <ul>
-            <li>Enterprise-grade encryption for all data transmission and storage</li>
+            <li>AES-256 encryption for all data transmission and storage</li>
+            <li>TLS 1.3 encryption for data in transit</li>
             <li>Multi-factor authentication for administrative access</li>
             <li>Regular security audits and vulnerability assessments</li>
-            <li>Secure cloud infrastructure with restricted access</li>
+            <li>Secure cloud infrastructure (Firebase Cloud Firestore - UAE region)</li>
+            <li>Role-based access control with comprehensive audit logs</li>
             <li>Staff training on data privacy and security protocols</li>
+            <li>SOC 2 Type II compliance procedures</li>
         </ul>
 
         <h2>Children's Privacy</h2>
@@ -225,6 +342,8 @@
         <h2>Changes to this Privacy Policy</h2>
         <p>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this Privacy Policy.</p>
 
+        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
         <div class="contact-info">
             <h2>📞 Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, You can contact us:</p>
@@ -232,20 +351,22 @@
             <ul style="list-style: none; padding-left: 0;">
                 <li><strong>🌐 Website:</strong> <a href="https://www.phoenician-uae.com">www.phoenician-uae.com</a></li>
                 <li><strong>📞 Phone:</strong> +971 4 882 9484</li>
-                <li><strong>✉️ Email:</strong>info@phoenician-uae.com</li>
+                <li><strong>✉️ Email:</strong> info@phoenician-uae.com</li>
                 <li><strong>📍 Address:</strong> Central Plaza Dubai DIP 1, Office No 399, Dubai, UAE</li>
             </ul>
 
             <p><strong>For Privacy-Related Inquiries:</strong></p>
             <ul style="list-style: none; padding-left: 0;">
-                <li><strong>✉️ Privacy Email:</strong> info@phoenician-uae.com</li>
+                <li><strong>✉️ Privacy Email:</strong> privacy@phoenician-uae.com</li>
                 <li><strong>👥 HR Department:</strong> info@phoenician-uae.com</li>
+                <li><strong>⏱️ Response Time:</strong> Within 15 business days</li>
             </ul>
         </div>
 
         <div class="footer">
             <p>&copy; 2025 Phoenician Technical Services LLC. All rights reserved.</p>
-            <p>This privacy policy is designed to comply with UAE data protection regulations and Google Play Store requirements.</p>
+            <p>This privacy policy is designed to comply with UAE data protection regulations, Apple App Store requirements, and Google Play Store requirements.</p>
+            <p><strong>Privacy Policy Version:</strong> 2.0 | <strong>Last Updated:</strong> October 14, 2025</p>
         </div>
     </div>
 </body>
